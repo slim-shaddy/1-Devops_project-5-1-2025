@@ -16,7 +16,7 @@ Tools:
 | Tool              | Purpose                               |
 | ----------------- | ------------------------------------- |
 | Git + GitHub      | Version control & trigger automation  |
-| Docker            | Containerisation       |
+| Docker            | Containerisation                      |
 | Jenkins           | CI/CD pipeline automation             |
 | SonarQube         | Code quality & security analysis      |
 | Nexus Repository  | Store versioned build artifacts (ZIP) |
@@ -33,4 +33,4 @@ Steps
 4. Create the dockerfile for node taking package.json & lock.json and adding the angular directory running the project 
 5. Node JS version v24.12.0.
 6. Multistage docker build for less storage 
-7. create
+7. git status
