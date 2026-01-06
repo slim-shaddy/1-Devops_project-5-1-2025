@@ -1,0 +1,18 @@
+Developer
+   |
+   | git push
+   v
+GitHub
+   |
+   v
+Jenkins (Home Server via Vagrant)
+   |
+   |--> SonarQube (Code Scan)
+   |--> Build Angular
+   |--> ZIP Artifact
+   |--> Nexus Repository
+   |--> Terraform Apply
+   |--> S3 Sync
+   |--> CloudFront Cache Invalidation
+   v
+Live Website (HTTPS via CloudFront)

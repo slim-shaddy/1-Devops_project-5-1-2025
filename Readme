@@ -1,0 +1,31 @@
+Welcome to the Fully Automated Devops project for a Angular static webpage basic.
+
+ZERO manual clicks | Infrastructure + CICD + Deployment automated
+
+Project Overview:
+    - Deploy a static website(HTML/CSS/JS)with:
+        -Continuous Version Control(Git)
+        -Automated CI/CD
+        -Static hosting with S3
+        -Infrastructure as a Code
+        -Security and Monitoring
+
+Tools:
+| Tool              | Purpose                               |
+| ----------------- | ------------------------------------- |
+| Git + GitHub      | Version control & trigger automation  |
+| Jenkins           | CI/CD pipeline automation             |
+| SonarQube         | Code quality & security analysis      |
+| Nexus Repository  | Store versioned build artifacts (ZIP) |
+| Terraform         | Provision AWS infra automatically     |
+| Amazon S3         | Static website hosting                |
+| Amazon CloudFront | CDN + HTTPS                           |
+| Vagrant           | Local DevOps lab (Home server)        |
+
+
+Steps
+1. Intialising git
+2. Have all the website data on the same folder
+3. Create Docker directory
+4. Create the dockerfile for node taking package.json & lock.json and adding the angular directory running the project 
+5. Node JS version v24.12.0.
