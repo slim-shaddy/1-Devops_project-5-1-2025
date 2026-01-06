@@ -31,3 +31,5 @@ Steps
 3. Create Docker directory
 4. Create the dockerfile for node taking package.json & lock.json and adding the angular directory running the project 
 5. Node JS version v24.12.0.
+6. Multistage build for less storage 
+7. create 

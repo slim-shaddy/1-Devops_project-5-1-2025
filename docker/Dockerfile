@@ -9,11 +9,11 @@ RUN npm run build -- --configuration=production
 # Production stage
 FROM nginx:alpine
 #remove default nginx.conf
-RUN rm /etc/nginx/conf.d/default.conf
+#RUN rm /etc/nginx/conf.d/default.conf
 #romove files from nginx
 RUN rm -rf /usr/share/nginx/html/*
 #copy nginx.conf
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+#COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 #copy build files from builder stage
 COPY --from=builder /app/dist/blog-app/browser /usr/share/nginx/html
 EXPOSE 80

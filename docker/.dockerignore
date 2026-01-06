@@ -1,0 +1,28 @@
+# =========================
+# Node / Angular
+# =========================
+node_modules
+npm-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# =========================
+# Angular build output
+# =========================
+dist
+.angular
+.cache
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+*.pem
+*.key
+
+# =========================
+# Git
+# =========================
+.git
+.gitignore
