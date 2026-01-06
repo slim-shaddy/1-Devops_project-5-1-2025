@@ -36,3 +36,4 @@ Steps
 7. To run and build the Dockerfile use command 
     **docker build -t appbuild:xx -f docker/Dockerfile . **
     **docker run -d appbuild:xx -p 8080:80
+8. The above dockerfile is made just for testing purpose and doesn't perform any task in this particular project
