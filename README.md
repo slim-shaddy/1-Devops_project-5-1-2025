@@ -33,4 +33,15 @@ Steps
 4. Create the dockerfile for node taking package.json & lock.json and adding the angular directory running the project 
 5. Node JS version v24.12.0.
 6. Multistage docker build for less storage 
-7. create
+7. To run and build the Dockerfile use command 
+
+    **docker build -t appbuild:xx -f docker/Dockerfile . **
+
+
+    **docker run -d appbuild:xx -p 8080:80
+
+
+    **docker run -d appbuild:xx -p 8080:80
+
+
+8. The above dockerfile is made just for testing purpose and doesn't perform any task in this particular project.
