@@ -1,8 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'hashicorp/terraform:1.6'
+            args '-u root'
+        }
+    }
 
     environment {
-        TF_DIR = 'Terraform/'
+        TF_DIR = 'Terraform'
         AWS_DEFAULT_REGION = 'us-east-1'
     }
 
@@ -41,7 +46,7 @@ pipeline {
 
     post {
         success {
-            echo '✅ Terraform executed successfully'
+            echo '✅ Terraform executed successfully using Docker agent'
         }
         failure {
             echo '❌ Terraform execution failed'
