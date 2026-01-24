@@ -1,0 +1,10 @@
+jenkins_home/
+node_modules/
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfvars
+*.log
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*

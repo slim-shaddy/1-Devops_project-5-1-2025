@@ -1,0 +1,181 @@
+🧠 WHY each line is used
+🧩 docker-compose.yml — WHY
+version: "3.8"
+
+Why:
+Ensures Docker understands the file format and supported features.
+
+
+services:
+
+Why:
+Compose can run multiple containers; this starts that section.
+
+jenkins:
+
+
+Why:
+Names the service so Docker can manage it (start, stop, logs).
+
+build:
+
+
+Why:
+You want a custom Jenkins image, not just the default one.
+
+context: .
+
+
+Why:
+Docker needs access to files (Dockerfile, plugins, scripts).
+
+dockerfile: Dockerfile
+
+
+Why:
+Explicitly tells Docker which file to use to build the image.
+
+image: my-jenkins:enhanced
+
+
+Why:
+Tags the image so it can be reused or pushed to a registry.
+
+container_name: jenkins
+
+
+Why:
+Gives a predictable name instead of a random one.
+
+restart: unless-stopped
+
+
+Why:
+Keeps Jenkins running after crashes or server reboots.
+
+ports:
+
+
+Why:
+Allows access to Jenkins from outside the container.
+
+8080:8080
+
+
+Why:
+Open Jenkins web UI in the browser.
+
+50000:50000
+
+
+Why:
+Allow Jenkins agents to connect.
+
+environment:
+
+
+Why:
+Pass configuration values without changing the image.
+
+JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+
+
+Why:
+Automates Jenkins startup (no manual setup).
+
+volumes:
+
+
+Why:
+Without this, ALL Jenkins data is lost when container stops.
+
+./jenkins_home:/var/jenkins_home
+
+
+Why:
+Persist jobs, plugins, users, credentials.
+
+healthcheck:
+
+
+Why:
+Docker needs to know if Jenkins is actually working.
+
+curl http://127.0.0.1:8080/login
+
+
+Why:
+Confirms Jenkins web app is responding.
+
+🧩 Dockerfile — WHY
+FROM jenkins/jenkins:lts
+
+
+Why:
+Stable, secure, officially maintained Jenkins base.
+
+LABEL maintainer=...
+
+
+Why:
+Documentation & ownership info.
+
+USER root
+
+
+Why:
+Only root can install system packages.
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+
+Why:
+Prevents installs from hanging waiting for input.
+
+apt-get install maven git curl
+
+
+Why:
+Jenkins builds need:
+
+Git → source code
+
+Maven → Java builds
+
+Curl → APIs & healthchecks
+
+rm -rf /var/lib/apt/lists/*
+
+
+Why:
+Reduce image size and attack surface.
+
+ENV JENKINS_HOME=/var/jenkins_home
+
+
+Why:
+Standard Jenkins data location.
+
+VOLUME /var/jenkins_home
+
+
+Why:
+Tell Docker: this directory must persist.
+
+EXPOSE 8080 50000
+
+
+Why:
+Documents which ports Jenkins uses.
+
+HEALTHCHECK ...
+
+
+Why:
+Detect broken or stuck Jenkins at runtime.
+
+USER jenkins
+
+
+Why:
+Security — Jenkins should never run as root.
