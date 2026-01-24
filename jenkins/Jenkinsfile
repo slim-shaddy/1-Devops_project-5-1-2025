@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        TF_DIR = 'Terraform/Terraform'
+        TF_DIR = 'Terraform/'
         AWS_DEFAULT_REGION = 'us-east-1'
     }
 
